@@ -1,5 +1,6 @@
 import { User } from '../../user';
 import { AuthActionTypes, All } from '../actions/auth.actions';
+import { ShareMarket } from '../../share-market.model'
 
 export interface State {
   // is a user authenticated?
@@ -8,12 +9,15 @@ export interface State {
   user: User | null;
   // error message
   errorMessage: string | null;
+  // allshares
+  shares: ShareMarket[];
 }
 
 export const initialState: State = {
     isAuthenticated: false,
     user: null,
-    errorMessage: null
+    errorMessage: null,
+    shares: []
   };
 
   export function reducer(state = initialState, action: All): State {

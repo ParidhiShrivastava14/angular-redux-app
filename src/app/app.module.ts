@@ -10,7 +10,9 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
+import { SharesService } from './services/shares.service';
 import { AuthEffects } from './store/effects/auth.effects';
+import { ShareEffects } from './store/effects/shares.effects';
 import { reducers } from './store/app.states';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
@@ -25,11 +27,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {}),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, ShareEffects]),
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, SharesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
