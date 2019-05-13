@@ -9,7 +9,6 @@ app.use(cors());
 
 app.get('/getShares', function (req, res) {
     fs.readFile('shares-data.json', function(err, data) {
-        res.writeHead(200, {'Content-Type': 'application/json'});
         res.send(data);
         res.end();
     });
